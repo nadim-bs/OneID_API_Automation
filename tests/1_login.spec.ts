@@ -17,7 +17,9 @@ test("User can login successfully with valid credentials", async ({ request }) =
     console.log(response)
     expect(response.success).toBe(true);
     expect(response.message).toContain("Login successful");
+    const access_token = response.data.access_token; // Get the access token value from the API response
     const refreshToken = response.data.refresh_token; // Get the refresh token value from the API response
+    saveEnvVar("access_token",access_token); // Save the refresh_token key in the .env file with the new value
     saveEnvVar("refresh_token",refreshToken); // Save the refresh_token key in the .env file with the new value
     
 })
