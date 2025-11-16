@@ -1,6 +1,6 @@
 import { APIRequestContext } from "@playwright/test";
 
-const logoutUrl = "https://dev.api.oneid.com.bd/api/v1/auth/logout";
+const logoutUrl = "https://test.api.oneid.com.bd/api/v1/auth/logout";
 export interface LogoutPayload{
     refresh_token:string
 }

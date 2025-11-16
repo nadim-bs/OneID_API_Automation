@@ -1,6 +1,6 @@
 import {APIRequestContext} from "@playwright/test";
 
-const url = "https://dev.api.oneid.com.bd/api/v1/auth/refresh";
+const url = "https://test.api.oneid.com.bd/api/v1/auth/refresh";
 export interface RefreshAccessToken{
     refresh_token:string
 }
