@@ -1,6 +1,6 @@
 import { APIRequestContext } from "@playwright/test";
 
-const loginUrl = "https://dev.api.oneid.com.bd/api/v1/auth/login";
+const loginUrl = "https://test.api.oneid.com.bd/api/v1/auth/login";
 export interface LoginPayload{
     username:string,
     password:string,
