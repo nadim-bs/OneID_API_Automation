@@ -13,5 +13,7 @@ test("Refresh access token using refresh token", async ({request})=>{
     expect(response.success).toBe(true);
     expect(response.message).toContain("Token refreshed successfully");
     const newRefreshToken = response.data.refresh_token; // Extract the new refresh token value from the API response
+    const newAccessToken = response.data.access_token; // Extract the new access token value from the API response
+    saveEnvVar("access_token", newAccessToken); // Update the "access_token" entry in the .env file with this new value
     saveEnvVar("refresh_token", newRefreshToken); // Update the "refresh_token" entry in the .env file with this new value
 })
