@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 import { logout, LogoutPayload } from "../service/logout.service";
 dotenv.config();
 
-test.only("Logout a user using their refresh token", async ({request})=>{
+test("Logout a user using their refresh token", async ({request})=>{
     const payLoad: LogoutPayload ={
         refresh_token:process.env.refresh_token as string  
     }
