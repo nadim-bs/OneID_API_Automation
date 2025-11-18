@@ -1,18 +1,20 @@
-import { APIRequestContext } from "@playwright/test";
+import { APIRequestContext, APIResponse } from "@playwright/test";
 
-const loginUrl = "https://test.api.oneid.com.bd/api/v1/auth/login";
-export interface LoginPayload{
-    username:string,
-    password:string,
-    recaptcha_token:string
+
+export interface LoginPayload {
+    username: string,
+    password: string,
+    recaptcha_token: string
 }
 
-export async function loginRequest(request:APIRequestContext, payLoad:LoginPayload){
-    const responseData = await request.post(loginUrl,
-         {
-            data:payLoad,
-            headers:{'Content-Type':'application/json'}
+export async function loginRequest(request: APIRequestContext, endpoint: string) {
+    return await request.post(endpoint,
+        {
+            data: {
+                username: process.env.USER_NAME as string,
+                password: process.env.PASSWORD as string,
+                recaptcha_token: "123456"
+            },
+            headers: { 'Content-Type': 'application/json' }
         });
-    const response = await responseData.json();
-    return response;
 }
